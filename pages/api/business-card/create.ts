@@ -1,7 +1,7 @@
 // app/api/businessCard/create.ts
 
 import { NextApiRequest, NextApiResponse } from 'next';
-import { createBusinessCard } from 'app/db';
+import { createBusinessCard } from '../db';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {

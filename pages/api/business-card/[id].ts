@@ -1,7 +1,7 @@
 // pages/api/businessCard/[id].ts
 
 import { NextApiRequest, NextApiResponse } from 'next';
-import { getBusinessCardById } from 'app/db';
+import { getBusinessCardById } from '../db';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { id } = req.query;
