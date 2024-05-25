@@ -2,6 +2,7 @@ import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { compare } from 'bcrypt-ts';
 import { getUser } from 'app/db';
+import { getBusinessCardById, createBusinessCard } from 'app/db'; // Add this line
 import { authConfig } from 'app/auth.config';
 
 export const {

@@ -1,5 +1,5 @@
 import { drizzle } from 'drizzle-orm/postgres-js';
-import { pgTable, serial, varchar } from 'drizzle-orm/pg-core';
+import { pgTable, serial, varchar , text} from 'drizzle-orm/pg-core';
 import { eq } from 'drizzle-orm';
 import postgres from 'postgres';
 import { genSaltSync, hashSync } from 'bcrypt-ts';
@@ -26,3 +26,20 @@ export async function createUser(email: string, password: string) {
 
   return await db.insert(users).values({ email, password: hash });
 }
+
+// Define the schema for the BusinessCard table
+const businessCards = pgTable('BusinessCard', {
+  id: serial('id').primaryKey(),
+  content: text('content'), // Using TEXT data type
+});
+
+// Function to retrieve a business card by its ID
+export async function getBusinessCardById(id: number) {
+  return await db.select().from(businessCards).where(eq(businessCards.id, id));
+}
+
+// Function to create a new business card
+export async function createBusinessCard(content: string) {
+  return await db.insert(businessCards).values({ content });
+}
+
