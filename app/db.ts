@@ -39,7 +39,7 @@ export async function getBusinessCardById(id: number) {
 }
 
 // Function to create a new business card
-export async function createBusinessCard(content: string) {
-  return await db.insert(businessCards).values({ content });
+export async function createBusinessCard(id: number, content: string) {
+  return await db.insert(businessCards).values({ id, content });
 }
 
