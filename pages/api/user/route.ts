@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
  
  export default function (request: VercelRequest, response: VercelResponse) {
     const { id, content } = request.body;
-
+    
     try {
         const user = kv.hgetall('user:me');
         console.log(user)

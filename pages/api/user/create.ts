@@ -6,7 +6,7 @@ export default async function (request: VercelRequest, response: VercelResponse)
     const { content } = request.body;
     try {
         const id = generateRandomId(10)
-        kv.set(id, content, { ex: 10000, nx: true });
+        kv.set(id, content, {  nx: true });
         response.status(200).json({ id: id, message: 'User created successfully' });
     } catch (error) {
         return response.status(500).json({ error: 'Internal server error' });
