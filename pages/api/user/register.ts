@@ -1,9 +1,9 @@
 // pages/api/users.ts
 
-import { NextApiRequest, NextApiResponse } from 'next';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { createUser } from '../db'; // 确保路径与你的项目结构相匹配
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   // 检查请求方法是否为 POST
   if (req.method === 'POST') {
     const { email, password } = req.body;
