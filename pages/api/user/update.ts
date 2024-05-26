@@ -6,6 +6,7 @@ import { NextResponse } from 'next/server';
     const { id, content } = request.body;
     try {
         kv.set(id, content, {});
+        kv.set(content, id, {});
         response.status(200).json({ message: 'User update successfully' });
     } catch (error) {
         return response.status(500).json({ error: 'Internal server error' });
